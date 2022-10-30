@@ -19,8 +19,7 @@ const POLYGON_MAINNET_RPC_URL =
 const GOERLI_RPC_URL =
     process.env.GOERLI_RPC_URL || "https://eth-goerli.alchemyapi.io/v2/your-api-key"
 
-const OWNER_PRIVATE_KEY = process.env.OWNER_PRIVATE_KEY || "0x00000000000000000000000000000000000000000000000000000000000000000"
-
+const OWNER_PRIVATE_KEY = process.env.OWNER_PRIVATE_KEY || "0x0000000000000000000000000000000000000000000000000000000000000000"
 // optional
 const MNEMONIC = process.env.MNEMONIC || "your mnemonic"
 
@@ -33,7 +32,7 @@ module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
-            // // For forking mainnet
+            // // If you want to do some forking, uncomment this
             // forking: {
             //   url: MAINNET_RPC_URL
             // }
@@ -94,8 +93,6 @@ module.exports = {
     etherscan: {
         // npx hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
-            rinkeby: ETHERSCAN_API_KEY,
-            kovan: ETHERSCAN_API_KEY,
             polygon: POLYGONSCAN_API_KEY,
             goerli: ETHERSCAN_API_KEY,
         },
@@ -105,10 +102,11 @@ module.exports = {
         currency: "USD",
         outputFile: "gas-report.txt",
         noColors: true,
+        coinmarketcap: process.env.COINMARKETCAP_API_KEY,
     },
     contractSizer: {
         runOnCompile: true,
-        only: ["Box"]
+        only: ["ChangePresident", "GovernanceToken", "GovernorContract", "TimeLock"],
     },
     namedAccounts: {
         deployer: {
@@ -120,16 +118,35 @@ module.exports = {
         compilers: [
             {
                 version: "0.8.7",
+                settings: {
+                    optimizer: {
+                      enabled: true,
+                      runs: 200
+                    }
+                }
             },
             {
                 version: "0.8.8",
+                settings: {
+                    optimizer: {
+                      enabled: true,
+                      runs: 200
+                    }
+                }
             },
             {
                 version: "0.8.9",
-            },
+                settings: {
+                    optimizer: {
+                      enabled: true,
+                      runs: 200
+                    }
+                }
+            }
         ],
     },
     mocha: {
         timeout: 200000, // 200 seconds max for running tests
     },
+
 }

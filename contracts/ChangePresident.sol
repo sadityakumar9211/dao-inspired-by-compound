@@ -10,7 +10,7 @@ contract ChangePresident is Ownable {
         string party;
         string term;
     }
-
+    
     PresidentInfo private s_president;
 
     //emitted when the stored value changes

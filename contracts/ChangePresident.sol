@@ -3,7 +3,7 @@ pragma solidity ^0.8.8;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Box is Ownable {
+contract ChangePresident is Ownable {
     struct PresidentInfo {
         address addr;
         string name;
@@ -11,18 +11,18 @@ contract Box is Ownable {
         string term;
     }
 
-    PresidentInfo private president;
+    PresidentInfo private s_president;
 
     //emitted when the stored value changes
     event ValueChanged(PresidentInfo _president);
 
     function store(PresidentInfo calldata _president) external onlyOwner {
-        president = _president;
+        s_president = _president;
         emit ValueChanged(_president);
     }
 
     //reads the last stored value
     function retrieve() public view returns (PresidentInfo memory) {
-        return president;
+        return s_president;
     }
 }

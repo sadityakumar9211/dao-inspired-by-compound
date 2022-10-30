@@ -1,3 +1,5 @@
+import path from "path"
+
 export interface networkConfigItem {
   ethUsdPriceFeed?: string;
   blockConfirmations?: number;
@@ -34,4 +36,5 @@ export const NEW_PRESIDENT_INFO = {
 };
 
 export const FUNC = "store";
-export const PROPOSAL_DESCRIPTION = "Change the President";
+export const PROPOSAL_DESCRIPTION = "Proposal #1: Changing the president to Aditya of EveryParty";
+export const PROPOSALS_FILE = path.join(__dirname, "proposals.json")

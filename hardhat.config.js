@@ -19,7 +19,7 @@ const POLYGON_MAINNET_RPC_URL =
 const GOERLI_RPC_URL =
     process.env.GOERLI_RPC_URL || "https://eth-goerli.alchemyapi.io/v2/your-api-key"
 
-const OWNER_PRIVATE_KEY = process.env.OWNER_PRIVATE_KEY || "0x"
+const OWNER_PRIVATE_KEY = process.env.OWNER_PRIVATE_KEY || "0x00000000000000000000000000000000000000000000000000000000000000000"
 
 // optional
 const MNEMONIC = process.env.MNEMONIC || "your mnemonic"

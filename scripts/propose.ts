@@ -44,7 +44,7 @@ export async function propose(
 
   console.log('Proposal Proposed...')
   const proposalId = proposeReceipt.events[0].args.proposalId
-  let proposals = JSON.parse(readFileSync(PROPOSALS_FILE, { encoding: 'utf8' }))
+  let proposals = JSON.parse(readFileSync(PROPOSALS_FILE, { encoding: 'utf-8' }))
   if (!proposals[network.config.chainId!.toString()]) {
     proposals[network.config.chainId!.toString()] = [proposalId.toString()]
   } else {

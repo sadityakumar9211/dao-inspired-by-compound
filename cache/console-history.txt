@@ -1,0 +1,10 @@
+.exit
+.help
+exit.help
+que
+quit
+exit()
+quit
+quit()
+await governor.state("68098086619814808087239741519503521400057976604958743107969231690371219467594")
+const governor = await ethers.getContract("GovernorContract")

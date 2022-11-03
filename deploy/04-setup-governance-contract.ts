@@ -23,7 +23,7 @@ const setupContracts: DeployFunction = async function (
   const proposerTx = await timeLock.grantRole(proposerRole, governor.address)
   await proposerTx.wait(1)
 
-  const executorTx = await timeLock.grantRole(proposerRole, ADDRESS_ZERO)
+  const executorTx = await timeLock.grantRole(executorRole, ADDRESS_ZERO)
   await executorTx.wait(1)
 
   const revokeTx = await timeLock.revokeRole(adminRole, deployer)
